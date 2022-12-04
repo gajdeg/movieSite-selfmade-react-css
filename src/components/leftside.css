@@ -1,0 +1,45 @@
+.leftSide {
+  flex: 1;
+  background: linear-gradient(
+      to right,
+      rgba(9, 29, 31, 0.5),
+      rgba(255, 69, 0, 0.5)
+    ),
+    url("/images/background.jpg");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+.header2 {
+  top: 80%;
+  left: 30px;
+}
+.header1 {
+  top: 15px;
+  left: 30px;
+}
+
+.line {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.847);
+  width: 120px;
+  height: 2px;
+  border-radius: 4px;
+  top: 87%;
+  left: 30px;
+}
+
+.dLogin {
+  top: 95%;
+  left: 30px;
+}
+
+.pst-abs {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.847);
+  height: 0;
+  overflow: visible;
+}
