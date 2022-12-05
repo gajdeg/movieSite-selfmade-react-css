@@ -12,4 +12,23 @@
   border-radius: 50%;
   top: 25%;
   left: 85%;
+  opacity: 0.5;
+}
+
+.copyRight {
+  height: 20px;
+  position: absolute;
+  top: 95%;
+  left: 80%;
+}
+.bigCircle {
+  position: absolute;
+  background: transparent;
+  border: 1px solid orangered;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  top: 15%;
+  left: 80%;
+  opacity: 0.5;
 }
