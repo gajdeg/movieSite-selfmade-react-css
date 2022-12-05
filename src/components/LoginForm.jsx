@@ -4,18 +4,21 @@ export default function LoginForm() {
   return (
     <div className="loginForm">
       <h3>Login</h3>
-      <div className="inputBox">
+
+      <label className="inputBox">
         <span>Email</span>
         <input
           type="email"
           required="required"
           placeholder="example@email.com"
         />
-      </div>
-      <div className="inputBox">
+      </label>
+
+      <label className="inputBox">
         <span>Password</span>
         <input type="password" required="required" placeholder="********" />
-      </div>
+      </label>
+
       <div className="links">
         <a className="fgt-p" href="#">
           Forgot password?
@@ -28,7 +31,7 @@ export default function LoginForm() {
       <button className="btn-login">LOG IN</button>
       <label className="keep">
         <input type="checkbox" name="keep" />
-        Keep me logged in
+        <div>Keep me logged in</div>
       </label>
     </div>
   );

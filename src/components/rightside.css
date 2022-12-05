@@ -1,9 +1,15 @@
 .rightSide {
   z-index: 1;
   flex: 1;
+  height: 100%;
 }
 
-.center {
+.copyRight {
+  margin-top: auto;
+  text-align: right;
+}
+
+/* .center {
   position: absolute;
   background: white;
   border: 45px solid orangered;
@@ -13,14 +19,9 @@
   top: 25%;
   left: 85%;
   opacity: 0.5;
-}
+} */
 
-.copyRight {
-  height: 20px;
-  position: absolute;
-  top: 95%;
-  left: 80%;
-}
+/* 
 .bigCircle {
   position: absolute;
   background: transparent;
@@ -31,4 +32,4 @@
   top: 15%;
   left: 80%;
   opacity: 0.5;
-}
+} */
