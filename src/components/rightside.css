@@ -9,27 +9,11 @@
   text-align: right;
 }
 
-/* .center {
+.div-circle {
   position: absolute;
-  background: white;
-  border: 45px solid orangered;
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  top: 25%;
-  left: 85%;
-  opacity: 0.5;
-} */
-
-/* 
-.bigCircle {
-  position: absolute;
-  background: transparent;
-  border: 1px solid orangered;
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  top: 15%;
-  left: 80%;
-  opacity: 0.5;
-} */
+  height: 65vh;
+  width: 65vh;
+  right: 0;
+  top: 50%;
+  transform: translate(40%, -50%);
+}
