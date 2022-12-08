@@ -1,4 +1,4 @@
-.loginForm {
+.container {
   background-color: white;
   height: min-content;
   position: absolute;
@@ -14,7 +14,7 @@
   width: 350px;
 }
 
-.loginForm h3 {
+.container h3 {
   align-self: center;
   margin-bottom: 30px;
 }
@@ -44,7 +44,7 @@
   box-shadow: 0 0 3px orangered;
 }
 
-button {
+.button {
   background-color: orangered;
   color: white;
   margin: 10px 10%;
@@ -61,7 +61,7 @@ button {
   transition: all 300ms;
 }
 
-button:hover {
+.button:hover {
   background-color: white;
   border: 2px solid orangered;
   color: orangered;
@@ -88,4 +88,10 @@ button:hover {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+}
+
+@media (max-width: 430px) {
+  .container {
+    width: 80%;
+  }
 }

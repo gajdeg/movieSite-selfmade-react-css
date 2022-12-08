@@ -1,11 +1,11 @@
 import React from "react";
-import "./loginform.css";
+import styles from "./loginform.module.css";
 export default function LoginForm() {
   return (
-    <div className="loginForm">
+    <div className={styles.container}>
       <h3>Login</h3>
 
-      <label className="inputBox">
+      <label className={styles.inputBox}>
         <span>Email</span>
         <input
           type="email"
@@ -14,22 +14,18 @@ export default function LoginForm() {
         />
       </label>
 
-      <label className="inputBox">
+      <label className={styles.inputBox}>
         <span>Password</span>
         <input type="password" required="required" placeholder="********" />
       </label>
 
-      <div className="links">
-        <a className="fgt-p" href="#">
-          Forgot password?
-        </a>
-        <a className="sign-up" href="#">
-          Create an account
-        </a>
+      <div className={styles.links}>
+        <a href="#">Forgot password?</a>
+        <a href="#">Create an account</a>
       </div>
 
-      <button className="btn-login">LOG IN</button>
-      <label className="keep">
+      <button className={styles.button}>LOG IN</button>
+      <label className={styles.keep}>
         <input type="checkbox" name="keep" />
         <div>Keep me logged in</div>
       </label>

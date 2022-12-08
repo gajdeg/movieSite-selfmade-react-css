@@ -1,4 +1,4 @@
-.rightSide {
+.container {
   z-index: 1;
   flex: 1;
   height: 100%;
@@ -9,11 +9,17 @@
   text-align: right;
 }
 
-.div-circle {
+.circle {
   position: absolute;
   height: 65vh;
   width: 65vh;
   right: 0;
   top: 50%;
   transform: translate(40%, -50%);
+}
+
+@media (max-width: 497px) {
+  .container {
+    display: none;
+  }
 }

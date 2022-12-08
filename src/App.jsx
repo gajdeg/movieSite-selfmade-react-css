@@ -1,16 +1,10 @@
 import "./App.css";
-import LoginForm from "./components/LoginForm";
-import LeftSide from "./components/LeftSide";
-import RightSide from "./components/RightSide";
+import { HomePage } from "./pages/homepage";
+//import { LoginPage } from "./pages/login";
 
 function App() {
-  return (
-    <div className="App">
-      <LeftSide></LeftSide>
-      <RightSide></RightSide>
-      <LoginForm></LoginForm>
-    </div>
-  );
+  // return <LoginPage></LoginPage>;
+  return <HomePage></HomePage>;
 }
 
 export default App;

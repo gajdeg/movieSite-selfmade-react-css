@@ -1,4 +1,4 @@
-.leftSide {
+.container {
   flex: 1;
   background: linear-gradient(
       to right,
@@ -13,7 +13,7 @@
   z-index: 1;
 }
 
-.leftSize-down {
+.down {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -24,4 +24,18 @@
   width: 120px;
   height: 2px;
   border-radius: 4px;
+}
+@media (max-width: 497px) {
+  .down {
+    text-align: center;
+  }
+  .line {
+    width: 100%;
+  }
+}
+
+@media (max-width: 430px) {
+  .down {
+    gap: 0.25rem;
+  }
 }
