@@ -73,6 +73,7 @@
 }
 
 .links a {
+  color: black;
   margin: 10px 0;
   font-size: 0.75em;
   text-decoration: none;

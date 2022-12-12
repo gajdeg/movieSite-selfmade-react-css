@@ -1,5 +1,11 @@
 import React from "react";
+import styles from "./index.module.css";
+import MyCarousel from "./MyCarousel";
 
-export default function HomePage() {
-  return <div>HomePage</div>;
+export function HomePage() {
+  return (
+    <div className={styles.container}>
+      <MyCarousel></MyCarousel>
+    </div>
+  );
 }

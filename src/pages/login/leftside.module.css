@@ -5,15 +5,15 @@
       rgba(9, 29, 31, 0.5),
       rgba(255, 69, 0, 0.5)
     ),
-    url("/images/background.jpg");
+    url("/images/LoginBG.jpg");
   background-size: cover;
   width: 100vw;
   height: 100vh;
   position: relative;
   z-index: 1;
 }
-
 .down {
+  margin-top: auto;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
