@@ -1,57 +1,53 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./header.module.css";
 import { useNavigate } from "react-router-dom";
 
 export function Header() {
-  const [Mobile, setMobile] = useState(false);
+  const [toggleMenu, setToggleMenu] = useState(false);
   const navigate = useNavigate();
 
   const redirectToHome = () => {
     navigate("/");
   };
 
+  const toggleNav = () => {
+    setToggleMenu(!toggleMenu);
+  };
+
   return (
-    <>
-      <header>
-        <div className={`${styles.container} ${styles.flexSB}`}>
-          <nav className={styles.flexSB}>
-            <img
-              src="/images/logo.png"
-              className={styles.logo}
-              onClick={redirectToHome}
-            />
-            <ul className={Mobile ? `${styles.list}` : `${styles.flexSB}`}>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/">Series</a>
-              </li>
-              <li>
-                <a href="/">Movies</a>
-              </li>
-              <li>
-                <a href="/">Contact</a>
-              </li>
-            </ul>
-            <button
-              className={styles.toggle}
-              onClick={() => setMobile(!Mobile)}
-            >
-              {Mobile ? (
-                <i className="fa fa-times" aria-hidden="true"></i>
-              ) : (
-                <i className="fa fa-bars" aria-hidden="true"></i>
-              )}
-            </button>
-          </nav>
-          <div className={`${styles.flexSB}`}>
-            <a href="/login">
-              <button className={styles.button}>Login</button>
-            </a>
-          </div>
-        </div>
-      </header>
-    </>
+    <nav className={toggleMenu ? styles.navActive : styles.nav}>
+      <div>
+        <img
+          src="/images/logo.png"
+          className={styles.logo}
+          onClick={redirectToHome}
+        />
+      </div>
+      <ul className={styles.list}>
+        <li className={styles.items}>
+          <a href="/">Home</a>
+        </li>
+        <li className={styles.items}>
+          <a href="/">Movies</a>
+        </li>
+        <li className={styles.items}>
+          <a href="/">Series</a>
+        </li>
+        <li className={styles.items}>
+          <a href="/">Contact</a>
+        </li>
+        <li className={styles.items}>
+          <a href="/login">
+            <button className={styles.btnLogin}>Login</button>
+          </a>
+        </li>
+      </ul>
+      <button className={styles.btn}>
+        <i
+          className={toggleMenu ? "fa fa-times" : "fa fa-bars"}
+          onClick={toggleNav}
+        />
+      </button>
+    </nav>
   );
 }
