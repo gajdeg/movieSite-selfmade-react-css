@@ -13,13 +13,10 @@ export default function MyCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
-    if (activeIndex < sources.length) {
-      const id = setInterval(() => {
-        setActiveIndex((i) => (i + 1 < sources.length ? ++i : 0));
-      }, 2000);
-      return () => clearInterval(id);
-    }
-    activeIndex = 1;
+    const id = setInterval(() => {
+      setActiveIndex((i) => (i + 1 < sources.length ? ++i : 0));
+    }, 2000);
+    return () => clearInterval(id);
   }, []);
 
   return (
