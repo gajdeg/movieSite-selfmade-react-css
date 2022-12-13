@@ -37,15 +37,6 @@ export default function MyCarousel() {
           }
         />
       ))}
-
-      <button
-        onClick={() =>
-          setActiveIndex((i) => (i + 1 < sources.length ? ++i : 0))
-        }
-        style={{ position: "absolute", bottom: 0, right: 0, zIndex: 4 }}
-      >
-        View next slide
-      </button>
     </div>
   );
 }
