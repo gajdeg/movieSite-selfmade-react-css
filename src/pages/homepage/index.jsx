@@ -6,6 +6,7 @@ export function HomePage() {
   return (
     <div className={styles.container}>
       <MyCarousel></MyCarousel>
+      Text 321333333333333333333333333333333333333333333333333333
     </div>
   );
 }
