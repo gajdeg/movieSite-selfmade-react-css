@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-// import { useInterval } from "react-use";
+import React, { useState } from "react";
+import { useInterval } from "../../hooks/useInterval";
 import styles from "./MyCarousel.module.css";
 
 const sources = [
@@ -12,12 +12,9 @@ const sources = [
 export default function MyCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
-    const id = setInterval(() => {
-      setActiveIndex((i) => (i + 1 < sources.length ? ++i : 0));
-    }, 2000);
-    return () => clearInterval(id);
-  }, []);
+  useInterval(() => {
+    setActiveIndex((i) => (i + 1 < sources.length ? ++i : 0));
+  }, 7000);
 
   return (
     <div className={styles.carousel}>
@@ -29,16 +26,13 @@ export default function MyCarousel() {
             activeIndex === 0 ? i === sources.length - 1 : i === activeIndex - 1
           }
           isActive={i === activeIndex}
-          isNext={
-            activeIndex === sources.length - 1 ? 0 : i === activeIndex + 1
-          }
         />
       ))}
     </div>
   );
 }
 
-const Image = ({ src, isPast, isNext, isActive }) => {
+const Image = ({ src, isPast, isActive }) => {
   return (
     <img
       src={src}
