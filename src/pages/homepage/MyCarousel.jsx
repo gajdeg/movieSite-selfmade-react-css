@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+// import { useInterval } from "react-use";
 import styles from "./MyCarousel.module.css";
 
 const sources = [
@@ -10,6 +11,16 @@ const sources = [
 
 export default function MyCarousel() {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    if (activeIndex < sources.length) {
+      const id = setInterval(() => {
+        setActiveIndex((i) => (i + 1 < sources.length ? ++i : 0));
+      }, 2000);
+      return () => clearInterval(id);
+    }
+    activeIndex = 1;
+  }, []);
 
   return (
     <div className={styles.carousel}>
