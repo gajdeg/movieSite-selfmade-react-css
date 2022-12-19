@@ -5,7 +5,6 @@ import useSWR from "swr";
 import MovieBox from "../../components/MovieBox/MovieBox";
 
 export function HomePage() {
-  const [movies, setMovies] = useState([]);
 
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const API_URL =
