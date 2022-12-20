@@ -1,10 +1,1 @@
-.list {
-  position: relative;
-  z-index: 998;
-}
 
-.list ul {
-  flex-wrap: wrap;
-  display: flex;
-  list-style-type: none;
-}

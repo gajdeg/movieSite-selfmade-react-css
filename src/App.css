@@ -33,3 +33,23 @@ button {
 .bg-primary {
   background: rgba(255, 69, 0, 0.5);
 }
+
+.alice-carousel__next-btn,
+.alice-carousel__prev-btn {
+  color: black;
+  position: absolute;
+  top: 140px;
+  font-size: 200%;
+  width: 35px !important;
+  background-color: rgba(255, 255, 255, 0.475);
+}
+
+.alice-carousel__next-btn {
+  right: 0;
+}
+
+.alice-carousel__next-btn:hover,
+.alice-carousel__prev-btn:hover {
+  background-color: rgba(255, 255, 255, 0.736);
+  color: orangered;
+}
