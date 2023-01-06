@@ -1,6 +1,6 @@
 import React from "react";
 import useSWR from "swr";
-import MovieBox from "../MovieBox/MovieBox";
+import SliderMovieBox from "../SliderMovieBox/SliderMovieBox";
 import styles from "./CategorySlider.module.css";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
@@ -21,13 +21,13 @@ export default function Category({ API_url, type }) {
       0: {
         items: 1,
       },
-      500: {
+      580: {
         items: 2,
       },
-      768: {
+      820: {
         items: 3,
       },
-      970: {
+      1060: {
         items: 4,
       },
       1200: {
@@ -46,7 +46,7 @@ export default function Category({ API_url, type }) {
 
       <AliceCarousel {...options}>
         {data.results.map((movie) => (
-          <MovieBox key={movie.id} {...movie} />
+          <SliderMovieBox key={movie.id} {...movie} />
         ))}
       </AliceCarousel>
     </div>

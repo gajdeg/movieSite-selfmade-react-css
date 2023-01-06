@@ -1,33 +1,29 @@
-import React, { useState } from "react";
-
+import React from "react";
+import useSWR from "swr";
 import styles from "./MovieBox.module.css";
+
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
-const MovieBox = ({
-  title,
-  poster_path,
-  vote_average,
-  release_date,
-  overview,
-}) => {
+export default function MovieBox({ API_url }) {
+  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  const { data, error, isLoading } = useSWR(API_url, fetcher);
+  if (error) return <div>failed to load</div>;
+  if (isLoading) return <div>loading...</div>;
   return (
-    <div className={styles.item}>
-      <div className={styles.posterContainer}>
-        <a href="#">
-          <img src={API_IMG + poster_path} className={styles.poster} />
-        </a>
-      </div>
-      {/* <div className={styles.ticketContainer}>
-        <div className={styles.ticketContent}>
-          <h4 className={styles.ticketMovieTitle}>{title}</h4>
-          <p className={styles.ticketMovieSlogan}></p>
-          <p className={styles.releaseDate}>Release: {release_date}</p>
-          <p className={styles.voteAverage}>IMDb: {vote_average}</p>
-          <button className={styles.btn}>Watch now</button>
+    <div className={styles.movieBox}>
+      {data.results.map((movie) => (
+        <div className={styles.posterContainer}>
+          <a href="#">
+            <img src={API_IMG + movie.poster_path} className={styles.poster} />
+          </a>
+          {/* <div className={styles.overview}>
+            <h2>{movie.title}:</h2>
+            <div className={styles.about}>{movie.overview}</div>
+
+            <button>Watch</button>
+          </div> */}
         </div>
-      </div> */}
+      ))}
     </div>
   );
-};
-
-export default MovieBox;
+}

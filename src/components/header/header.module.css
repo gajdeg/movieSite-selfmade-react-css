@@ -8,11 +8,11 @@
   height: 70px;
   background-image: linear-gradient(
     to right bottom,
-    rgba(0, 0, 0, 0.9),
-    rgba(0, 0, 0, 0.9),
-    rgba(0, 0, 0, 0.6),
-    rgba(0, 0, 0, 0.5),
-    rgba(0, 0, 0, 0)
+    rgba(42, 50, 57, 0.9),
+    rgba(42, 50, 57, 0.9),
+    rgba(42, 50, 57, 0.6),
+    rgba(42, 50, 57, 0.5),
+    rgba(42, 50, 57, 0)
   );
   z-index: 999;
   transition: 0.3s ease-in-out;
@@ -89,7 +89,7 @@
     position: fixed;
     width: 300px;
     height: 100vh;
-    background: rgba(42, 50, 57, 0.907);
+    background: rgba(42, 50, 57, 0.90742);
     box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
     padding: 40px 0 0 10px;
     transition: 0.3s ease-in-out;

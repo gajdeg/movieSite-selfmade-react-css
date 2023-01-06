@@ -3,6 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import { Header } from "./components/header/Header";
 import { LoginPage } from "./pages/login";
 import { HomePage } from "./pages/homepage";
+import Footer from "./components/footer/Footer";
+import Movies from "./pages/movies/Movies";
+import Series from "./pages/series/Series";
 
 function App() {
   return (
@@ -11,7 +14,10 @@ function App() {
       <Routes>
         <Route index element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/series" element={<Series />} />
       </Routes>
+      <Footer />
     </>
   );
 }

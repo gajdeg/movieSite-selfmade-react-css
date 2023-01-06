@@ -28,13 +28,13 @@ export function Header() {
           <a href="/">Home</a>
         </li>
         <li className={styles.items}>
-          <a href="/">Movies</a>
+          <a href="/movies">Movies</a>
         </li>
         <li className={styles.items}>
-          <a href="/">Series</a>
+          <a href="/series">Series</a>
         </li>
         <li className={styles.items}>
-          <a href="/">Contact</a>
+          <a href="/">About</a>
         </li>
         <li className={styles.items}>
           <a href="/login">

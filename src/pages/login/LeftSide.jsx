@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./leftside.module.css";
+import styles from "./LeftSide.module.css";
 import { SideContainer } from "./SideContainer";
 
 export default function LeftSide() {

@@ -3,23 +3,23 @@
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .img {
   position: absolute;
   top: 0;
   left: 0;
-  transition: transform 1000ms;
+  transition: 1000ms;
 }
 
 .past {
-  transform: translateX(-100%);
+  transform: translateX(-90%);
   z-index: 1;
 }
 
 .next {
-  transform: translateX(100%);
+  transform: translateX(110%);
   z-index: 0;
 }
 
