@@ -4,15 +4,24 @@
   gap: 1rem;
   justify-items: center;
 }
-.posterContainer {
+.movieThumb {
   width: 70%;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
-
-.posterContainer a {
+.posterContainer {
   height: 100%;
+  transition: all 400ms ease-out;
+}
+.posterContainer:hover {
+  transition: all 400ms ease-in-out;
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+}
+.posterContainer a {
+  text-decoration: none;
 }
 
 .posterContainer img {
@@ -25,53 +34,31 @@
   border-radius: 20px;
 }
 
-.overview {
-  color: white;
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  background-color: rgba(42, 50, 57);
-  padding: 2rem;
-  transform: translateY(100%);
-  transition: transform 1s ease-in;
-  max-width: 100%;
-  overflow: auto;
-  border-radius: 20px;
-}
-
-/* .item:hover .overview {
-  transform: translateY(0);
-}
-
-.overview h4 {
-  margin-top: 0;
-}
-
-.about {
-  overflow: hidden;
+.title {
+  margin-top: 10px;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  width: 140px;
   text-overflow: ellipsis;
-  white-space: initial;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
-} */
-
-.overview button {
-  border: none;
-  background-color: orangered;
-  color: white;
-  position: absolute;
-  bottom: 10px;
-  width: 160px;
-  height: 40px;
-  border-radius: 50px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+}
+.pagination {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+.pagination button {
+  background-color: #ffffffb0;
+  border: transparent;
+  width: 100px;
+  font-size: 20px;
   cursor: pointer;
 }
 
-.overview button:hover {
-  background-color: rgba(255, 68, 0, 0.649);
+.pagination button:hover {
+  background-color: white;
 }
 
 @media (min-width: 450px) {
