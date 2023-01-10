@@ -9,7 +9,7 @@ export default function MovieBox({ API_url, title }) {
   const movies = [];
 
   for (let i = 1; i <= pageCount; i++) {
-    movies.push(<Page index={i} api={API_url} title={title} />);
+    movies.push(<Page index={i} key={i} api={API_url} title={title} />);
   }
 
   return (
@@ -28,7 +28,7 @@ function Page({ index, api, title }) {
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
   const { data, error, isLoading } = useSWR(api, fetcher);
   if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
+  if (isLoading) return <div className={styles.loading}></div>;
 
   return data.results.map((movie) => (
     <div key={movie.id} className={styles.movieThumb}>
