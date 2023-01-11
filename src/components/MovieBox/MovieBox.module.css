@@ -64,7 +64,8 @@
   color: #ffffff;
   background-color: transparent;
   text-align: center;
-  transition: all 0.5s;
+  transition: all 1s;
+  cursor: pointer;
 }
 
 .pagination button:hover {
