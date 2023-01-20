@@ -73,7 +73,6 @@ export default function MovieBox({ title, type }) {
         </button>
       </form>
       <ToastContainer
-        style={{ width: "300px" }}
         position="bottom-center"
         autoClose={4000}
         hideProgressBar={false}
