@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useSWR from "swr";
+import { PageAnimation } from "../../components/PageAnimation";
 import { fetcher } from "../../fetcher";
 import styles from "./MovieDetails.module.css";
-import { motion } from "framer-motion";
 
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 
@@ -17,12 +17,7 @@ export default function MovieDetails() {
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ ease: "easeIn", duration: 1 }}
-    >
+    <PageAnimation>
       <button className={styles.backBtn} onClick={() => navigate(-1)}>
         <i className="fa fa-arrow-circle-o-left"></i>
       </button>
@@ -41,6 +36,6 @@ export default function MovieDetails() {
           </a>
         </div>
       </div>
-    </motion.div>
+    </PageAnimation>
   );
 }
