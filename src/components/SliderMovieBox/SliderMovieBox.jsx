@@ -18,7 +18,6 @@ const SliderMovieBox = ({
         <div className={styles.overview}>
           <h2>{title}:</h2>
           <div className={styles.about}>{overview}</div>
-
           <button>Watch</button>
         </div>
       </div>

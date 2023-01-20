@@ -1,9 +1,19 @@
+.container {
+  margin-top: 100px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  --toastify-color-progress-dark: orangered;
+  --toastify-color-dark: rgba(42, 50, 57, 0.9);
+}
+
 .movieBox {
   display: grid;
   margin: 0 auto;
   gap: 1rem;
   justify-items: center;
-  align-items: center;
 }
 .movieThumb {
   width: 70%;
@@ -50,7 +60,7 @@
   display: flex;
   justify-content: center;
 }
-.pagination button {
+.pagination .loadBtn {
   font-size: 15px;
   display: inline-block;
   padding: 0.35em 1.2em;
@@ -68,16 +78,16 @@
   cursor: pointer;
 }
 
-.pagination button:hover {
+.pagination .loadBtn:hover {
   color: #000000;
   background-color: #ffffff;
 }
-.loading {
+.ring {
   display: inline-block;
   width: 80px;
   height: 80px;
 }
-.loading:after {
+.ring:after {
   content: " ";
   display: block;
   width: 64px;
@@ -95,6 +105,36 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 30px;
+}
+input {
+  border-color: rgb(42, 50, 57);
+  color: rgba(255, 255, 255, 0.841);
+  background-color: rgb(42, 50, 57);
+  padding: 10px;
+  font-size: 1em;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  height: 25px;
+  width: 40%;
+  transition: width 0.5s ease-out;
+}
+.btnSearch {
+  background-color: rgba(255, 68, 0, 0.76);
+  border: none;
+  height: 25px;
+  width: 30px;
+}
+input:focus-visible {
+  border-color: orangered;
+  outline: transparent;
 }
 
 @media (min-width: 450px) {

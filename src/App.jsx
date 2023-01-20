@@ -6,17 +6,27 @@ import { HomePage } from "./pages/homepage";
 import Footer from "./components/footer/Footer";
 import Movies from "./pages/movies/Movies";
 import Series from "./pages/series/Series";
+import MovieDetails from "./pages/movieDetails/MovieDetails";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   return (
     <>
       <Header />
-      <Routes>
-        <Route index element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/series" element={<Series />} />
-      </Routes>
+      <AnimatePresence>
+        <Routes>
+          <Route index element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/series" element={<Series />} />
+          <Route path="/series" element={<Series />} />
+          <Route
+            path="/details/:type/:movieId/:title"
+            element={<MovieDetails></MovieDetails>}
+          />
+        </Routes>
+      </AnimatePresence>
+
       <Footer />
     </>
   );
