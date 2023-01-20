@@ -1,9 +1,9 @@
 import { useState } from "react";
 import styles from "./MovieBox.module.css";
 import useSWRInfinite from "swr/infinite";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { imageNull } from "../../ImageNull";
 
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
@@ -14,14 +14,25 @@ const fetcher = (...url) =>
       return data.results;
     });
 
+const useQuery = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initialQuery = searchParams.get("query");
+  const [query, _setQuery] = useState(initialQuery);
+
+  function setQuery(newQuery) {
+    _setQuery(newQuery);
+    setSearchParams(new URLSearchParams({ query: newQuery }));
+  }
+
+  return [query, setQuery];
+};
+
 export default function MovieBox({ title, type }) {
-  const [query, setQuery] = useState("");
-  const [search, setSearch] = useState(false);
-  const [input, setInput] = useState("");
+  const [query, setQuery] = useQuery(initialQuery);
 
   const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
     (index) =>
-      search
+      query
         ? `https://api.themoviedb.org/3/search/${type}/?api_key=6f9286d54de4891ea7a5c91779e09786&query=${query}&page=${
             index + 1
           }`
@@ -36,42 +47,25 @@ export default function MovieBox({ title, type }) {
     isLoadingInitialData ||
     (size > 0 && data && typeof data[size - 1] === "undefined");
 
-  const handleSearch = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (input.length < 3) {
-      notify();
-      return;
-    }
-
-    setQuery(input);
     setSize(1);
-    setSearch(true);
+    setQuery(input);
   };
-  const notify = () =>
-    toast(
-      `It's a movie site, not a mind reader! You need to insert more than 3 characters`,
-      { icon: "🧠" }
-    );
 
   return (
     <div className={styles.container}>
-      <form role="search">
+      {/* <form role="search" onSubmit={handleSubmit}>
         <input
           placeholder="Search movies"
           onChange={(e) => setInput(e.target.value)}
           value={input}
-          required
           autoFocus
         />
-        <button
-          type="submit"
-          className={styles.btnSearch}
-          onClick={handleSearch}
-        >
+        <button type="submit" className={styles.btnSearch}>
           <i className="fa fa-search"></i>
         </button>
-      </form>
+      </form> */}
       <ToastContainer
         style={{ width: "300px" }}
         position="bottom-center"
