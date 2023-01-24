@@ -1,10 +1,11 @@
 import { useState } from "react";
 import styles from "./MovieBox.module.css";
 import useSWRInfinite from "swr/infinite";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 import { Link, useSearchParams } from "react-router-dom";
 import { imageNull } from "../../ImageNull";
+import { useRef } from "react";
+import SearchForm from "../SearchForm/SearchForm";
 
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
 const fetcher = (...url) =>
@@ -28,7 +29,8 @@ const useQuery = () => {
 };
 
 export default function MovieBox({ title, type }) {
-  const [query, setQuery] = useQuery(initialQuery);
+  const [query, setQuery] = useQuery();
+  const inputRef = useRef(null);
 
   const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
     (index) =>
@@ -50,34 +52,17 @@ export default function MovieBox({ title, type }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSize(1);
-    setQuery(input);
+    setQuery(inputRef.current.value);
   };
 
   return (
     <div className={styles.container}>
-      {/* <form role="search" onSubmit={handleSubmit}>
-        <input
-          placeholder="Search movies"
-          onChange={(e) => setInput(e.target.value)}
-          value={input}
-          autoFocus
-        />
-        <button type="submit" className={styles.btnSearch}>
-          <i className="fa fa-search"></i>
-        </button>
-      </form> */}
-      <ToastContainer
-        position="bottom-center"
-        autoClose={4000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      />
+      <SearchForm
+        handleSubmit={handleSubmit}
+        inputRef={inputRef}
+        data={data}
+        title={title}
+      ></SearchForm>
       <div className={styles.movieBox}>
         {data?.flat().map((movie) => (
           <div key={movie.id} className={styles.movieThumb}>

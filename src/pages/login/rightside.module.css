@@ -6,7 +6,7 @@
 }
 
 .circle {
-  position: relative;
+  position: fixed;
   height: 65vh;
   width: 65vh;
   right: 0;

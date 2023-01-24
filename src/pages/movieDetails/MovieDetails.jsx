@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import useSWR from "swr";
 import { PageAnimation } from "../../components/PageAnimation";
 import { fetcher } from "../../fetcher";
+import { imageNull } from "../../ImageNull";
 import styles from "./MovieDetails.module.css";
 
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
@@ -22,7 +23,12 @@ export default function MovieDetails() {
         <i className="fa fa-arrow-circle-o-left"></i>
       </button>
       <div className={styles.container}>
-        <img src={API_IMG + data?.poster_path} className={styles.poster} />
+        <img
+          src={
+            data?.poster_path === null ? imageNull : API_IMG + data?.poster_path
+          }
+          className={styles.poster}
+        />
         <div className={styles.details}>
           <div className={styles.title}>{data[title]}</div>
 
