@@ -33,13 +33,13 @@ export default function SearchForm({
           <i className="fa fa-search" />
         </button>
       </form>
-      <div>
-        {keyword !== null && keyword !== ""
+      <ul>
+        {keyword !== ""
           ? options.slice(0, 5).map((movie, index) => {
-              return <p key={index}> {movie.title}</p>;
+              return <li key={index}> {movie.title}</li>;
             })
           : null}
-      </div>
+      </ul>
     </div>
   );
 }
