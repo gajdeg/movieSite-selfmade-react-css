@@ -1,4 +1,9 @@
+.item {
+  height: 349px;
+}
 .posterContainer {
+  height: 100%;
+
   width: 230px;
   position: relative;
   top: 0;
@@ -7,6 +12,8 @@
 }
 
 .poster {
+  height: 100%;
+
   width: 100%;
   box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
   border-radius: 20px;

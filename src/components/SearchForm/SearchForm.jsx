@@ -20,7 +20,6 @@ export default function SearchForm({
     e.preventDefault();
     onSubmit(keyword);
   };
-
   return (
     <div className={styles.container}>
       <form role="search" onSubmit={handleSubmit}>
@@ -28,16 +27,18 @@ export default function SearchForm({
           placeholder={placeholder}
           autoFocus
           onChange={(e) => setKeyword(e.target.value)}
-          value={keyword}
+          value={keyword || ""}
         />
         <button type="submit" className={styles.btnSearch}>
           <i className="fa fa-search" />
         </button>
       </form>
       <div>
-        {options.slice(0, 5).map((movie, index) => {
-          return <p key={index}> {movie.title}</p>;
-        })}
+        {keyword !== null && keyword !== ""
+          ? options.slice(0, 5).map((movie, index) => {
+              return <p key={index}> {movie.title}</p>;
+            })
+          : null}
       </div>
     </div>
   );
