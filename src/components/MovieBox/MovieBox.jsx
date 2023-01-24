@@ -1,70 +1,47 @@
-import { useState } from "react";
+import { useRef } from "react";
 import styles from "./MovieBox.module.css";
-import useSWRInfinite from "swr/infinite";
 
 import { Link, useSearchParams } from "react-router-dom";
 import { imageNull } from "../../ImageNull";
-import { useRef } from "react";
 import SearchForm from "../SearchForm/SearchForm";
+import { useMoviesQuery } from "../../hooks/useMoviesQuery";
 
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
-const fetcher = (...url) =>
-  fetch(...url)
-    .then((res) => res.json())
-    .then((data) => {
-      return data.results;
-    });
 
-const useQuery = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const initialQuery = searchParams.get("query");
-  const [query, _setQuery] = useState(initialQuery);
+const useURLSearchParam = (key) => {
+  const [searchParam, setSearchParam] = useSearchParams();
 
-  function setQuery(newQuery) {
-    _setQuery(newQuery);
-    setSearchParams(new URLSearchParams({ query: newQuery }));
+  function set(newValue) {
+    setSearchParam(new URLSearchParams({ [key]: newValue }));
   }
 
-  return [query, setQuery];
+  return [searchParam.get(key), set];
 };
 
 export default function MovieBox({ title, type }) {
-  const [query, setQuery] = useQuery();
-  const inputRef = useRef(null);
+  const [keyword, setKeyword] = useURLSearchParam("keyword");
 
-  const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
-    (index) =>
-      query
-        ? `https://api.themoviedb.org/3/search/${type}/?api_key=6f9286d54de4891ea7a5c91779e09786&query=${query}&page=${
-            index + 1
-          }`
-        : `https://api.themoviedb.org/3/${type}/popular?api_key=6f9286d54de4891ea7a5c91779e09786&page=${
-            index + 1
-          }`,
-    fetcher,
-    { revalidateFirstPage: false }
-  );
-  const isLoadingInitialData = !data && !error;
-  const isLoadingMore =
-    isLoadingInitialData ||
-    (size > 0 && data && typeof data[size - 1] === "undefined");
+  const { data, size, setSize, isValidating } = useMoviesQuery({
+    keyword,
+    type,
+  });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (keyword) => {
     setSize(1);
-    setQuery(inputRef.current.value);
+    setKeyword(keyword);
   };
 
   return (
     <div className={styles.container}>
       <SearchForm
-        handleSubmit={handleSubmit}
-        inputRef={inputRef}
-        data={data}
+        type={type}
+        onSubmit={handleSubmit}
         title={title}
-      ></SearchForm>
+        initialKeyword={keyword}
+        placeholder="Search movies"
+      />
       <div className={styles.movieBox}>
-        {data?.flat().map((movie) => (
+        {data?.map((movie) => (
           <div key={movie.id} className={styles.movieThumb}>
             <div className={styles.posterContainer}>
               <Link to={`/details/${type}/${movie.id}/${title}`}>
@@ -75,6 +52,7 @@ export default function MovieBox({ title, type }) {
                       : API_IMG + movie.poster_path
                   }
                   className={styles.poster}
+                  alt=""
                 />
               </Link>
             </div>
@@ -85,10 +63,14 @@ export default function MovieBox({ title, type }) {
         ))}
       </div>
       <div className={styles.pagination}>
-        {isLoadingMore ? (
-          <div className={styles.ring}></div>
+        {isValidating ? (
+          <div className={styles.ring} />
         ) : (
-          <button className={styles.loadBtn} onClick={() => setSize(size + 1)}>
+          <button
+            className={styles.loadBtn}
+            onClick={() => setSize(size + 1)}
+            disabled={isValidating}
+          >
             Load more
           </button>
         )}

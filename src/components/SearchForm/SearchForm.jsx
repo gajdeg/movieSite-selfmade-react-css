@@ -1,72 +1,44 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useMoviesQuery } from "../../hooks/useMoviesQuery";
 import styles from "./SearchForm.module.css";
 
-export default function SearchForm({ handleSubmit, inputRef, data, title }) {
-  const [search, setSearch] = useState([]);
-  let debounced;
-  
-  const doMovieFilter = (value) => {
-    const searchTerm = value.toLowerCase();
-    clearTimeout(debounced);
+export default function SearchForm({
+  initialKeyword = "",
+  onSubmit,
+  type,
+  placeholder,
+}) {
+  const [keyword, setKeyword] = useState(initialKeyword);
 
-    if (!searchTerm) return setSearch([]);
+  const { data: options = [] } = useMoviesQuery({
+    keyword,
+    type,
+    delayMs: 350,
+  });
 
-    debounced = setTimeout(() => {
-      console.log("Called");
-      setSearch(
-        data?.flat().map((movies) => {
-          const movieName = movies[title].toLowerCase();
-          return movieName.includes(searchTerm);
-        })
-      );
-    }, 1000);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(keyword);
   };
-  console.log(search);
+
   return (
     <div className={styles.container}>
       <form role="search" onSubmit={handleSubmit}>
         <input
-          placeholder="Search movies"
-          ref={inputRef}
+          placeholder={placeholder}
           autoFocus
-          onChange={(e) => {
-            doMovieFilter(e.target.value);
-          }}
+          onChange={(e) => setKeyword(e.target.value)}
+          value={keyword}
         />
         <button type="submit" className={styles.btnSearch}>
-          <i className="fa fa-search"></i>
+          <i className="fa fa-search" />
         </button>
       </form>
       <div>
-        {search.map((c, index) => {
-          return <p key={index}> {c}</p>;
+        {options.slice(0, 5).map((movie, index) => {
+          return <p key={index}> {movie.title}</p>;
         })}
       </div>
     </div>
   );
-}
-
-{
-  /* {data
-            ?.flat()
-            .map((movie) => {
-              const searchTerm = value.toLowerCase();
-              const movieName = movie[title].toLowerCase();
-              return (
-                searchTerm &&
-                movieName.startsWith(searchTerm) &&
-                movieName !== searchTerm
-              );
-            })
-            .slice(0, 10)
-            .map((movie, key) => (
-              <div
-                onClick={() => onSearch(movie[title])}
-                className={styles.dropdownRow}
-                key={key}
-              >
-                {movie[title]}
-              </div>
-            ))} */
 }
