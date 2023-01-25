@@ -34,7 +34,7 @@ export function Header() {
           <a href="/series">Series</a>
         </li>
         <li className={styles.items}>
-          <a href="/">About</a>
+          <a href="/about">About</a>
         </li>
         <li className={styles.items}>
           <a href="/login">

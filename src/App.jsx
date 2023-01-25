@@ -8,6 +8,7 @@ import Movies from "./pages/movies/Movies";
 import Series from "./pages/series/Series";
 import MovieDetails from "./pages/movieDetails/MovieDetails";
 import { AnimatePresence } from "framer-motion";
+import About from "./pages/about/About";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/movies" element={<Movies />} />
           <Route path="/series" element={<Series />} />
-          <Route path="/series" element={<Series />} />
+          <Route path="/about" element={<About />} />
           <Route
             path="/details/:type/:movieId/:title"
             element={<MovieDetails></MovieDetails>}
