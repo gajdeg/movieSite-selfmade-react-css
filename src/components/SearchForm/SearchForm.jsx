@@ -7,6 +7,7 @@ export default function SearchForm({
   onSubmit,
   type,
   placeholder,
+  title,
 }) {
   const [keyword, setKeyword] = useState(initialKeyword);
 
@@ -20,6 +21,7 @@ export default function SearchForm({
     e.preventDefault();
     onSubmit(keyword);
   };
+  console.log(keyword);
   return (
     <div className={styles.container}>
       <form role="search" onSubmit={handleSubmit}>
@@ -33,10 +35,21 @@ export default function SearchForm({
           <i className="fa fa-search" />
         </button>
       </form>
-      <ul>
-        {keyword !== ""
-          ? options.slice(0, 5).map((movie, index) => {
-              return <li key={index}> {movie.title}</li>;
+      <ul className={styles.dropdown}>
+        {keyword !== "" && keyword !== null && initialKeyword !== keyword
+          ? options.slice(0, 8).map((movie, index) => {
+              return (
+                <li
+                  key={index}
+                  className={styles.dropdownRow}
+                  onClick={() => {
+                    setKeyword(movie[title]);
+                    onSubmit(movie[title]);
+                  }}
+                >
+                  {movie[title]}
+                </li>
+              );
             })
           : null}
       </ul>
