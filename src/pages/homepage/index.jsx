@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styles from "./index.module.css";
 import UpcomingMovies from "./UpcomingMovies";
 import MyCarousel from "./MyCarousel";
@@ -11,11 +10,11 @@ export function HomePage() {
   return (
     <PageAnimation>
       <div className={styles.container}>
-        <MyCarousel></MyCarousel>
-        <PopularMovies></PopularMovies>
-        <PopularTV></PopularTV>
-        <UpcomingMovies></UpcomingMovies>
-        <TopRatedMovies></TopRatedMovies>
+        <MyCarousel />
+        <PopularMovies />
+        <PopularTV />
+        <UpcomingMovies />
+        <TopRatedMovies />
       </div>
     </PageAnimation>
   );

@@ -1,4 +1,41 @@
 .container {
   margin-top: 200px;
+  margin-bottom: 50px;
   color: whitesmoke;
+  display: flex;
+  justify-content: center;
+}
+.desktopImg {
+  width: 30%;
+  height: 20%;
+}
+.mobileImg {
+  display: none;
+}
+.box {
+  width: 50%;
+}
+
+.box div {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 820px) {
+  .container {
+    margin-top: 100px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .desktopImg {
+    display: none;
+  }
+  .mobileImg {
+    display: block;
+    width: 30%;
+    height: 20%;
+  }
+  .box {
+    width: 70%;
+  }
 }

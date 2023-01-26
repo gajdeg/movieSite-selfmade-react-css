@@ -21,7 +21,6 @@ export default function SearchForm({
     e.preventDefault();
     onSubmit(keyword);
   };
-  console.log(keyword);
   return (
     <div className={styles.container}>
       <form role="search" onSubmit={handleSubmit}>

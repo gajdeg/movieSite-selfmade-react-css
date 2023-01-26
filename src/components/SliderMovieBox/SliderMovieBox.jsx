@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { imageNull } from "../../ImageNull";
 import styles from "./SliderMovieBox.module.css";
 const API_IMG = "https://image.tmdb.org/t/p/w500/";
@@ -13,8 +12,9 @@ const SliderMovieBox = ({
   return (
     <div className={styles.item}>
       <div className={styles.posterContainer}>
-        <a href="#">
+        <a href="/">
           <img
+            alt=""
             src={poster_path === null ? imageNull : API_IMG + poster_path}
             className={styles.poster}
           />
