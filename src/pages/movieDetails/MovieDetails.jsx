@@ -37,7 +37,7 @@ export default function MovieDetails() {
             <i className="fa fa-imdb" />
             {parseFloat(data?.vote_average).toFixed(1)}
           </div>
-          <a href={data?.homepage} target="_blank" className={styles.watchBtn}>
+          <a href={data?.homepage} className={styles.watchBtn}>
             Watch now
           </a>
         </div>

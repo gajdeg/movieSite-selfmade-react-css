@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./footer.module.css";
+import styles from "./Footer.module.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Footer() {
@@ -15,16 +15,16 @@ export default function Footer() {
             <div>Streamy</div>
           </li>
           <li>
-            <a href="">Home</a>
+            <a href="h">Home</a>
           </li>
           <li>
-            <a href="">Contact us</a>
+            <a href="c">Contact us</a>
           </li>
           <li>
-            <a href="">Term of services</a>
+            <a href="t">Term of services</a>
           </li>
           <li>
-            <a href="">About us</a>
+            <a href="a">About us</a>
           </li>
         </ul>
         <ul className={styles.list}>
@@ -32,13 +32,13 @@ export default function Footer() {
             <div>Suggestions</div>
           </li>
           <li>
-            <a href="">You must watch</a>
+            <a href="y">You must watch</a>
           </li>
           <li>
-            <a href="">Recent release</a>
+            <a href="r">Recent release</a>
           </li>
           <li>
-            <a href="">Top IMDB</a>
+            <a href="t">Top IMDB</a>
           </li>
         </ul>
         <ul className={styles.list}>
@@ -46,16 +46,16 @@ export default function Footer() {
             <div>Social</div>
           </li>
           <li>
-            <a href="">YouTube</a>
+            <a href="y">YouTube</a>
           </li>
           <li>
-            <a href="">Twitter</a>
+            <a href="t">Twitter</a>
           </li>
           <li>
-            <a href="">Facebook</a>
+            <a href="f">Facebook</a>
           </li>
           <li>
-            <a href="">Instagram</a>
+            <a href="i">Instagram</a>
           </li>
         </ul>
       </div>
@@ -64,6 +64,7 @@ export default function Footer() {
           src="/images/logo.png"
           className={styles.logo}
           onClick={redirectToHome}
+          alt=""
         />
         <div>©2023 Gajdeg</div>
       </div>

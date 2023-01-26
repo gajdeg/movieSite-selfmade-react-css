@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import styles from "./header.module.css";
+import { useState } from "react";
+import styles from "./Header.module.css";
 import { useNavigate } from "react-router-dom";
 
 export function Header() {
