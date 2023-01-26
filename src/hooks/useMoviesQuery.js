@@ -13,7 +13,7 @@ export const useMoviesQuery = ({ type, keyword, delayMs = 0 }) => {
 
   const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite(
     (index) =>
-      debouncedKeyword
+      debouncedKeyword && debouncedKeyword.replace(/\s/g, "").length
         ? `https://api.themoviedb.org/3/search/${type}/?api_key=6f9286d54de4891ea7a5c91779e09786&query=${debouncedKeyword}&page=${
             index + 1
           }`

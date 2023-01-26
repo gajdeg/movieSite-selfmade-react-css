@@ -20,8 +20,8 @@ export default function LoginForm() {
       </label>
 
       <div className={styles.links}>
-        <a href="#">Forgot password?</a>
-        <a href="#">Create an account</a>
+        <a href="/forgot">Forgot password?</a>
+        <a href="/create">Create an account</a>
       </div>
 
       <button className={styles.button}>LOG IN</button>

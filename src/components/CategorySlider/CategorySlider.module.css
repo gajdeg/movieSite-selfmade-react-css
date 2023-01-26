@@ -12,8 +12,7 @@
   display: flex;
   scroll-snap-align: start;
   align-items: center;
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .prev,

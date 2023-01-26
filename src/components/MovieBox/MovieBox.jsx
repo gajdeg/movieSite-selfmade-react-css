@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import styles from "./MovieBox.module.css";
 
 import { Link, useSearchParams } from "react-router-dom";
