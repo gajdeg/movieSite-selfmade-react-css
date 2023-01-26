@@ -20,7 +20,7 @@ export default function MovieDetails() {
   return (
     <PageAnimation>
       <button className={styles.backBtn} onClick={() => navigate(-1)}>
-        <i className="fa fa-arrow-circle-o-left"></i>
+        <i className="fa fa-arrow-circle-o-left" />
       </button>
       <div className={styles.container}>
         <img
@@ -28,6 +28,7 @@ export default function MovieDetails() {
             data?.poster_path === null ? imageNull : API_IMG + data?.poster_path
           }
           className={styles.poster}
+          alt=""
         />
         <div className={styles.details}>
           <div className={styles.title}>{data[title]}</div>
