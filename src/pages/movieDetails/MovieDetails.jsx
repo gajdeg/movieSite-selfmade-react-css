@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import useSWR from "swr";
-import { PageAnimation } from "../../components/PageAnimation";
+import { PageAnimation } from "../../Components/PageAnimation";
 import { fetcher } from "../../fetcher";
 import { imageNull } from "../../ImageNull";
 import styles from "./MovieDetails.module.css";
