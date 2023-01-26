@@ -15,16 +15,16 @@ export default function Footer() {
             <div>Streamy</div>
           </li>
           <li>
-            <a href="h">Home</a>
+            <a href="#">Home</a>
           </li>
           <li>
-            <a href="c">Contact us</a>
+            <a href="#">Contact us</a>
           </li>
           <li>
-            <a href="t">Term of services</a>
+            <a href="#">Term of services</a>
           </li>
           <li>
-            <a href="a">About us</a>
+            <a href="#">About us</a>
           </li>
         </ul>
         <ul className={styles.list}>
@@ -32,13 +32,13 @@ export default function Footer() {
             <div>Suggestions</div>
           </li>
           <li>
-            <a href="y">You must watch</a>
+            <a href="#">You must watch</a>
           </li>
           <li>
-            <a href="r">Recent release</a>
+            <a href="#">Recent release</a>
           </li>
           <li>
-            <a href="t">Top IMDB</a>
+            <a href="#">Top IMDB</a>
           </li>
         </ul>
         <ul className={styles.list}>
@@ -46,16 +46,16 @@ export default function Footer() {
             <div>Social</div>
           </li>
           <li>
-            <a href="y">YouTube</a>
+            <a href="#">YouTube</a>
           </li>
           <li>
-            <a href="t">Twitter</a>
+            <a href="#">Twitter</a>
           </li>
           <li>
-            <a href="f">Facebook</a>
+            <a href="#">Facebook</a>
           </li>
           <li>
-            <a href="i">Instagram</a>
+            <a href="#">Instagram</a>
           </li>
         </ul>
       </div>
