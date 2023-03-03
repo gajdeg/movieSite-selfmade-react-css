@@ -23,7 +23,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route
             path="/details/:type/:movieId/:title"
-            element={<MovieDetails></MovieDetails>}
+            element={<MovieDetails />}
           />
         </Routes>
       </AnimatePresence>

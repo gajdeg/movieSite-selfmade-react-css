@@ -12,7 +12,7 @@ const SliderMovieBox = ({
   return (
     <div className={styles.item}>
       <div className={styles.posterContainer}>
-        <a>
+        <a href="/">
           <img
             alt=""
             src={poster_path === null ? imageNull : API_IMG + poster_path}

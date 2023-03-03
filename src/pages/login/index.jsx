@@ -6,9 +6,9 @@ import styles from "./index.module.css";
 export function LoginPage() {
   return (
     <div className={styles.loginPage}>
-      <LeftSide></LeftSide>
-      <RightSide></RightSide>
-      <LoginForm></LoginForm>
+      <LeftSide />
+      <RightSide />
+      <LoginForm />
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createGlobalState } from "react-use";
 import { useMoviesQuery } from "../../hooks/useMoviesQuery";
 import styles from "./SearchForm.module.css";
 
@@ -21,7 +22,6 @@ export default function SearchForm({
     e.preventDefault();
     onSubmit(keyword);
   };
-
   return (
     <div className={styles.container}>
       <form role="search" onSubmit={handleSubmit}>
@@ -38,6 +38,7 @@ export default function SearchForm({
       <ul className={styles.dropdown}>
         {keyword !== "" && keyword !== null && initialKeyword !== keyword
           ? options.slice(0, 8).map((movie, index) => {
+              console.log(movie);
               return (
                 <li
                   key={index}
